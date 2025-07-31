@@ -29,17 +29,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fu7sn")
 
-[node name="Transition" parent="." instance=ExtResource("2_jix8l")]
-visible = false
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
-
-[node name="FadeTimer" type="Timer" parent="Transition"]
-
 [node name="BackgroundPanel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -107,7 +96,13 @@ theme_override_fonts/font = ExtResource("2_fu7sn")
 theme_override_font_sizes/font_size = 116
 text = "Loop Robber"
 
-[connection signal="timeout" from="Transition/FadeTimer" to="." method="_on_fade_timer_timeout"]
+[node name="Transition" parent="." instance=ExtResource("2_jix8l")]
+visible = false
+layout_mode = 1
+
+[node name="FadeTimer" type="Timer" parent="Transition"]
+
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="timeout" from="Transition/FadeTimer" to="." method="_on_fade_timer_timeout"]
