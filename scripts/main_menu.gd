@@ -2,6 +2,12 @@ extends Control
 
 var button_type = null
 
+func _ready() -> void:
+	$Transition/AnimationPlayer.play("fade_out")
+	var video = $VideoStreamPlayer
+	video.play()
+
+
 func _on_start_button_pressed() -> void:
 	print("start pressed")
 	button_type = "start"
@@ -25,7 +31,7 @@ func _on_quit_button_pressed() -> void:
 
 func _on_fade_timer_timeout() -> void:
 	if button_type == "start" :
-		get_tree().change_scene_to_file("res://game.tscn")
+		get_tree().change_scene_to_file("res://scenes/game.tscn")
 		
 	elif button_type == "options" :
-		get_tree().change_scene_to_file("res://options.tscn")
+		get_tree().change_scene_to_file("res://scenes/options.tscn")

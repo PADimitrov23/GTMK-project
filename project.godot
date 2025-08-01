@@ -11,6 +11,11 @@ config_version=5
 [application]
 
 config/name="The Loop"
-run/main_scene="uid://cudqwshkh8m4f"
+run/main_scene="uid://cr3l8mylm076i"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1902
+window/size/viewport_height=962
+window/size/mode=3

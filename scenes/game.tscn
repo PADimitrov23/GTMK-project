@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1m82yqjj2qm7"]
+
+[ext_resource type="Script" uid="uid://drmwh07275ddf" path="res://scripts/game.gd" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://cs6ng4najsxad" path="res://scenes/fade_transition.tscn" id="2_lnu2h"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_yqjtg")
+
+[node name="Transition" parent="." instance=ExtResource("2_lnu2h")]
+visible = false
