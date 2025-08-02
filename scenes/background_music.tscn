@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dleib06cb63y5"]
+
+[ext_resource type="AudioStream" uid="uid://bdutaphi6btpy" path="res://media/music/Maarten Schellekens - Kelp Cove.mp3" id="1_0rulj"]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_0rulj")
+autoplay = true
+bus = &"Music"

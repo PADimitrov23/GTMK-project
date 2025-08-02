@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cudqwshkh8m4f"]
+[gd_scene load_steps=9 format=3 uid="uid://cudqwshkh8m4f"]
 
 [ext_resource type="Script" uid="uid://wejyk2oqwpsp" path="res://scripts/main_menu.gd" id="1_wu84c"]
 [ext_resource type="FontFile" uid="uid://bhpqevcnc30r2" path="res://media/fonts/moinho_1.otf" id="3_8ln24"]
 [ext_resource type="VideoStream" uid="uid://cimpy4uuyqpdb" path="res://media/videos/MenuCordPull.ogv" id="3_rtw2f"]
 [ext_resource type="PackedScene" uid="uid://cs6ng4najsxad" path="res://scenes/fade_transition.tscn" id="4_oa1go"]
 [ext_resource type="VideoStream" uid="uid://ddb0gid3jpd5w" path="res://media/videos/MenuAnimBase-ezgif.com-webp-to-mp4-converter.ogv" id="4_wu84c"]
+[ext_resource type="AudioStream" uid="uid://dav35cbpiqn5e" path="res://media/sfx/lamp-on-sfx.ogg" id="6_rtw2f"]
 
 [sub_resource type="Theme" id="Theme_rhts7"]
 
@@ -37,7 +38,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="BackgroundAnimation" type="VideoStreamPlayer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -66,6 +66,37 @@ grow_horizontal = 2
 grow_vertical = 2
 stream = ExtResource("3_rtw2f")
 expand = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -106.0
+offset_right = 402.0
+offset_bottom = 106.0
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+theme = SubResource("Theme_rhts7")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_8ln24")
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = SubResource("StyleBoxFlat_06t4h")
+text = "Options
+"
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+theme = SubResource("Theme_rhts7")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_8ln24")
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = SubResource("StyleBoxFlat_06t4h")
+text = "Credits"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -99,36 +130,6 @@ theme_override_font_sizes/font_size = 90
 theme_override_styles/normal = SubResource("StyleBoxFlat_06t4h")
 text = "Quit"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -106.0
-offset_right = 402.0
-offset_bottom = 106.0
-grow_vertical = 2
-theme_override_constants/separation = 30
-
-[node name="OptionsButton" type="Button" parent="VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme = SubResource("Theme_rhts7")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("3_8ln24")
-theme_override_font_sizes/font_size = 90
-theme_override_styles/normal = SubResource("StyleBoxFlat_06t4h")
-text = "Options"
-
-[node name="CreditsButton" type="Button" parent="VBoxContainer2"]
-layout_mode = 2
-theme = SubResource("Theme_rhts7")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("3_8ln24")
-theme_override_font_sizes/font_size = 90
-theme_override_styles/normal = SubResource("StyleBoxFlat_06t4h")
-text = "Credits"
-
 [node name="Transition" parent="." instance=ExtResource("4_oa1go")]
 layout_mode = 2
 anchors_preset = 0
@@ -139,9 +140,15 @@ color = Color(0, 0, 0, 1)
 wait_time = 0.5
 one_shot = true
 
+[node name="SfxLightSwitch" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_rtw2f")
+volume_db = 9.905
+bus = &"Sfx"
+
 [connection signal="finished" from="CordPullAnimation" to="." method="_on_chord_pull_animation_finished"]
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="VBoxContainer2/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="VBoxContainer2/CreditsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="timeout" from="Transition/FadeTimer" to="." method="_on_fade_timer_timeout"]
