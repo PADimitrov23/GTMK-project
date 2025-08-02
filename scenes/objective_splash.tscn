@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://bhpqevcnc30r2" path="res://media/fonts/moinho_1.otf" id="2_dki74"]
 [ext_resource type="PackedScene" uid="uid://cs6ng4najsxad" path="res://scenes/fade_transition.tscn" id="3_31g85"]
 
-[node name="Control" type="Control"]
+[node name="ObjectiveSplash" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,8 +46,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true
+autostart = true
 
 [node name="Transition" parent="." instance=ExtResource("3_31g85")]
 layout_mode = 0
@@ -56,3 +57,5 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

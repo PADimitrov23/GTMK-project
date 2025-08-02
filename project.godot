@@ -1,16 +1,8 @@
-; Engine configuration file.
-; It's best edited using the editor UI and not directly,
-; since the parameters that go here are not all obvious.
-;
-; Format:
-;   [section] ; section goes between []
-;   param=value ; assign values to parameters
-
 config_version=5
 
 [application]
 
-config/name="The Loop"
+config/name="Inked Robber"
 run/main_scene="uid://cr3l8mylm076i"
 config/features=PackedStringArray("4.4", "Forward Plus")
 

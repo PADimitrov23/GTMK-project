@@ -45,7 +45,7 @@ func _play_cord_pull_animation():
 
 func _on_fade_timer_timeout() -> void:
 	if button_type == "start":
-		get_tree().change_scene_to_file("res://scenes/game.tscn")
+		get_tree().change_scene_to_file("res://scenes/objective_splash.tscn")
 		
 	elif button_type == "options":
 		get_tree().change_scene_to_file("res://scenes/options.tscn")
