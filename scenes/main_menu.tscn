@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cudqwshkh8m4f"]
+[gd_scene load_steps=8 format=3 uid="uid://cudqwshkh8m4f"]
 
 [ext_resource type="Script" uid="uid://wejyk2oqwpsp" path="res://scripts/main_menu.gd" id="1_wu84c"]
 [ext_resource type="FontFile" uid="uid://bhpqevcnc30r2" path="res://media/fonts/moinho_1.otf" id="3_8ln24"]
+[ext_resource type="VideoStream" uid="uid://cimpy4uuyqpdb" path="res://media/videos/MenuCordPull.ogv" id="3_rtw2f"]
 [ext_resource type="PackedScene" uid="uid://cs6ng4najsxad" path="res://scenes/fade_transition.tscn" id="4_oa1go"]
 [ext_resource type="VideoStream" uid="uid://ddb0gid3jpd5w" path="res://media/videos/MenuAnimBase-ezgif.com-webp-to-mp4-converter.ogv" id="4_wu84c"]
 
@@ -35,7 +36,8 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+[node name="BackgroundAnimation" type="VideoStreamPlayer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,6 +52,20 @@ stream = ExtResource("4_wu84c")
 autoplay = true
 expand = true
 loop = true
+
+[node name="CordPullAnimation" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 278.0
+offset_top = -67.0
+offset_right = -245.0
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("3_rtw2f")
+expand = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -83,13 +99,6 @@ theme_override_font_sizes/font_size = 90
 theme_override_styles/normal = SubResource("StyleBoxFlat_06t4h")
 text = "Quit"
 
-[node name="Transition" parent="." instance=ExtResource("4_oa1go")]
-visible = false
-layout_mode = 1
-
-[node name="FadeTimer" type="Timer" parent="Transition"]
-wait_time = 0.5
-
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 4
@@ -120,8 +129,19 @@ theme_override_font_sizes/font_size = 90
 theme_override_styles/normal = SubResource("StyleBoxFlat_06t4h")
 text = "Credits"
 
+[node name="Transition" parent="." instance=ExtResource("4_oa1go")]
+layout_mode = 2
+anchors_preset = 0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="FadeTimer" type="Timer" parent="Transition"]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="finished" from="CordPullAnimation" to="." method="_on_chord_pull_animation_finished"]
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="timeout" from="Transition/FadeTimer" to="." method="_on_fade_timer_timeout"]
 [connection signal="pressed" from="VBoxContainer2/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="VBoxContainer2/CreditsButton" to="." method="_on_options_button_pressed"]
+[connection signal="timeout" from="Transition/FadeTimer" to="." method="_on_fade_timer_timeout"]

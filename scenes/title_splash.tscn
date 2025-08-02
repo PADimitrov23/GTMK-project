@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cr3l8mylm076i"]
+[gd_scene load_steps=4 format=3 uid="uid://cr3l8mylm076i"]
 
 [ext_resource type="Script" uid="uid://blpf3yyet5tja" path="res://scenes/title_splash.gd" id="1_bx4s0"]
 [ext_resource type="FontFile" uid="uid://bhpqevcnc30r2" path="res://media/fonts/moinho_1.otf" id="2_v5mno"]
+[ext_resource type="PackedScene" uid="uid://cs6ng4najsxad" path="res://scenes/fade_transition.tscn" id="3_v5mno"]
 
 [node name="TitleSplash" type="Control"]
 layout_mode = 3
@@ -43,5 +44,8 @@ uppercase = true
 wait_time = 3.0
 one_shot = true
 autostart = true
+
+[node name="Transition" parent="." instance=ExtResource("3_v5mno")]
+layout_mode = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
