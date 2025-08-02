@@ -1,12 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://c567un04w7gnc"]
+[gd_scene load_steps=9 format=3 uid="uid://c567un04w7gnc"]
 
 [ext_resource type="FontFile" uid="uid://bhpqevcnc30r2" path="res://media/fonts/moinho_1.otf" id="1_c2u1v"]
-[ext_resource type="Script" uid="uid://dxwh7gc5ajfn5" path="res://scenes/options.gd" id="1_yjkok"]
+[ext_resource type="Script" uid="uid://dxwh7gc5ajfn5" path="res://scripts/options.gd" id="1_yjkok"]
 [ext_resource type="PackedScene" uid="uid://cs6ng4najsxad" path="res://scenes/fade_transition.tscn" id="3_2iy26"]
+[ext_resource type="Script" uid="uid://3sce0ff85f8w" path="res://scenes/volume_slider.gd" id="3_kv8mn"]
+[ext_resource type="AudioStream" uid="uid://dav35cbpiqn5e" path="res://media/sfx/lamp-on-sfx.ogg" id="4_1sggn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c2u1v"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2iy26"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e6vpq"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -67,14 +71,18 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 89.0
+offset_left = 88.0
 offset_top = -136.0
-offset_right = 496.0
+offset_right = 495.0
 offset_bottom = -65.0
 grow_vertical = 2
 mouse_default_cursor_shape = 6
 theme_override_constants/center_grabber = 0
 theme_override_constants/grabber_offset = 0
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_kv8mn")
+bus_name = "Master"
 
 [node name="BackButton" type="Button" parent="ColorRect"]
 layout_mode = 1
@@ -115,6 +123,10 @@ grow_vertical = 2
 mouse_default_cursor_shape = 6
 theme_override_constants/center_grabber = 0
 theme_override_constants/grabber_offset = 0
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_kv8mn")
+bus_name = "Music"
 
 [node name="SfxVolumeLabel" type="Label" parent="ColorRect"]
 layout_mode = 1
@@ -146,6 +158,10 @@ grow_vertical = 2
 mouse_default_cursor_shape = 6
 theme_override_constants/center_grabber = 0
 theme_override_constants/grabber_offset = 0
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_kv8mn")
+bus_name = "Sfx"
 
 [node name="AcceptButton" type="Button" parent="ColorRect"]
 layout_mode = 1
@@ -165,9 +181,38 @@ theme_override_font_sizes/font_size = 91
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2iy26")
 text = "Accept"
 
+[node name="TextSfxButton" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -442.0
+offset_top = -32.0
+offset_right = -216.0
+offset_bottom = 32.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_c2u1v")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxEmpty_e6vpq")
+text = "TEst sfx"
+
+[node name="TestSfxPlayer" type="AudioStreamPlayer2D" parent="ColorRect/TextSfxButton"]
+position = Vector2(-6, 0)
+stream = ExtResource("4_1sggn")
+bus = &"Sfx"
+
 [node name="Transition" parent="." instance=ExtResource("3_2iy26")]
 layout_mode = 0
 anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
+[connection signal="changed" from="ColorRect/MasterVolumeSlider" to="." method="_on_master_volume_slider_changed"]
 [connection signal="pressed" from="ColorRect/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="ColorRect/AcceptButton" to="." method="_on_accept_button_pressed"]
+[connection signal="pressed" from="ColorRect/TextSfxButton" to="." method="_on_text_sfx_button_pressed"]

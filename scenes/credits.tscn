@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c0ofm83ycuhid"]
 
-[ext_resource type="Script" uid="uid://ceb4obcbl0qo6" path="res://scenes/credits.gd" id="1_0ctdu"]
+[ext_resource type="Script" uid="uid://ceb4obcbl0qo6" path="res://scripts/credits.gd" id="1_0ctdu"]
 [ext_resource type="FontFile" uid="uid://bhpqevcnc30r2" path="res://media/fonts/moinho_1.otf" id="2_2fbfq"]
 [ext_resource type="PackedScene" uid="uid://cs6ng4najsxad" path="res://scenes/fade_transition.tscn" id="3_8gwij"]
 
@@ -54,11 +54,11 @@ theme_override_fonts/font = ExtResource("2_2fbfq")
 theme_override_font_sizes/font_size = 46
 text = "Background Music: Kelp Cove by Maarten Schellekens CC0
 
-Animations and art: Kristiyan andreev
+Animations and art: Kristian andreev
 
 back-end: Mark dimitrov and Petar Dimitrov
 
-story: Kristiyan Andreev and Petar Dimitrov
+story: Kristian Andreev, Petar Dimitrov and Mark Dimitrov
 
 Playtesters:
 
