@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://bhpqevcnc30r2" path="res://media/fonts/moinho_1.otf" id="1_c2u1v"]
 [ext_resource type="Script" uid="uid://dxwh7gc5ajfn5" path="res://scripts/options.gd" id="1_yjkok"]
 [ext_resource type="PackedScene" uid="uid://cs6ng4najsxad" path="res://scenes/fade_transition.tscn" id="3_2iy26"]
-[ext_resource type="Script" uid="uid://3sce0ff85f8w" path="res://scenes/volume_slider.gd" id="3_kv8mn"]
+[ext_resource type="Script" uid="uid://3sce0ff85f8w" path="res://scripts/volume_slider.gd" id="3_kv8mn"]
 [ext_resource type="AudioStream" uid="uid://dav35cbpiqn5e" path="res://media/sfx/lamp-on-sfx.ogg" id="4_1sggn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c2u1v"]
