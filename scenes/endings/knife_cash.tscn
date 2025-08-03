@@ -1,0 +1,234 @@
+[gd_scene load_steps=33 format=3 uid="uid://cn2qgm1nncnjx"]
+
+[ext_resource type="VideoStream" uid="uid://id2pvf4b7x5b" path="res://media/videos/KnifeCash.ogv" id="1_w56f6"]
+[ext_resource type="Script" uid="uid://p8ibvrb3tvyt" path="res://scripts/knife_cash_ending.gd" id="2_ctdgm"]
+[ext_resource type="PackedScene" uid="uid://cs6ng4najsxad" path="res://scenes/fade_transition.tscn" id="2_plu6a"]
+[ext_resource type="Texture2D" uid="uid://cujsw2gr3iaxi" path="res://media/spritesheets/PlayerProfile.png" id="3_mow1i"]
+[ext_resource type="Texture2D" uid="uid://rh3er2q105av" path="res://media/spritesheets/Robber_BodySheet.png" id="4_recfk"]
+[ext_resource type="Texture2D" uid="uid://c25ew51wl0np0" path="res://media/spritesheets/Robber_Faces.png" id="5_ckehi"]
+[ext_resource type="Texture2D" uid="uid://bfp5w8u5pa2mr" path="res://media/images/half_dollar.PNG" id="6_7f6us"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tghg"]
+atlas = ExtResource("3_mow1i")
+region = Rect2(0, 0, 1256, 1256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_473mq"]
+atlas = ExtResource("3_mow1i")
+region = Rect2(1256, 0, 1256, 1256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1va0p"]
+atlas = ExtResource("3_mow1i")
+region = Rect2(2512, 0, 1256, 1256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tvof"]
+atlas = ExtResource("3_mow1i")
+region = Rect2(3768, 0, 1256, 1256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fqq6g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tghg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_473mq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1va0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tvof")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2yb1"]
+atlas = ExtResource("4_recfk")
+region = Rect2(0, 0, 756, 997)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_js0lu"]
+atlas = ExtResource("4_recfk")
+region = Rect2(756, 0, 756, 997)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxtfn"]
+atlas = ExtResource("4_recfk")
+region = Rect2(1512, 0, 756, 997)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twgab"]
+atlas = ExtResource("4_recfk")
+region = Rect2(2268, 0, 756, 997)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02fa5"]
+atlas = ExtResource("4_recfk")
+region = Rect2(0, 997, 756, 997)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nepv3"]
+atlas = ExtResource("4_recfk")
+region = Rect2(756, 997, 756, 997)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7025r"]
+atlas = ExtResource("4_recfk")
+region = Rect2(1512, 997, 756, 997)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4url"]
+atlas = ExtResource("4_recfk")
+region = Rect2(2268, 997, 756, 997)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ool0"]
+atlas = ExtResource("4_recfk")
+region = Rect2(0, 1994, 756, 997)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pr1ej"]
+atlas = ExtResource("4_recfk")
+region = Rect2(756, 1994, 756, 997)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05nbr"]
+atlas = ExtResource("4_recfk")
+region = Rect2(1512, 1994, 756, 997)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0sl42"]
+atlas = ExtResource("4_recfk")
+region = Rect2(2268, 1994, 756, 997)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5hxui"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2yb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_js0lu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxtfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twgab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02fa5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nepv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7025r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4url")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ool0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pr1ej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05nbr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0sl42")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6g7no"]
+atlas = ExtResource("5_ckehi")
+region = Rect2(60, 3288, 631, 644)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktk6v"]
+atlas = ExtResource("5_ckehi")
+region = Rect2(701, 3288, 631, 644)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l34ss"]
+atlas = ExtResource("5_ckehi")
+region = Rect2(1342, 3288, 631, 644)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqlm7"]
+atlas = ExtResource("5_ckehi")
+region = Rect2(1983, 3288, 631, 644)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffw6k"]
+atlas = ExtResource("5_ckehi")
+region = Rect2(2624, 3288, 631, 644)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iipuv"]
+atlas = ExtResource("5_ckehi")
+region = Rect2(3906, 3288, 631, 644)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eubuk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6g7no")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktk6v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l34ss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqlm7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffw6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iipuv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="KnifeCash" type="VideoStreamPlayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_w56f6")
+expand = true
+script = ExtResource("2_ctdgm")
+
+[node name="RobberScene" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PlayerProfile" type="AnimatedSprite2D" parent="RobberScene"]
+position = Vector2(142.519, 944)
+scale = Vector2(0.214202, 0.190032)
+sprite_frames = SubResource("SpriteFrames_fqq6g")
+autoplay = "default"
+
+[node name="RobberBody" type="AnimatedSprite2D" parent="RobberScene"]
+position = Vector2(953.519, 652.168)
+scale = Vector2(0.939154, 0.939153)
+sprite_frames = SubResource("SpriteFrames_5hxui")
+autoplay = "default"
+
+[node name="RobberFace" type="AnimatedSprite2D" parent="RobberScene"]
+position = Vector2(917.145, 488)
+scale = Vector2(0.361344, 0.354389)
+sprite_frames = SubResource("SpriteFrames_eubuk")
+autoplay = "default"
+frame = 2
+frame_progress = 0.366867
+
+[node name="HalfDollar" type="Sprite2D" parent="RobberScene"]
+position = Vector2(1213.15, 856)
+texture = ExtResource("6_7f6us")
+
+[node name="Transition" parent="." instance=ExtResource("2_plu6a")]
+layout_mode = 1

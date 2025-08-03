@@ -29,6 +29,8 @@ func _check_for_pair(a: DraggableItem, b: DraggableItem):
 func _on_confirm_button_pressed() -> void:
 	if left_hand.item == null and right_hand.item == null:
 		return
+	elif _check_for_pair($ItemKnife, $ItemCash):
+		_play_ending("res://scenes/endings/knife_cash.tscn")
 	elif _check_for_pair($ItemBooze, $ItemPhone):
 		_play_ending("res://scenes/endings/booze_phone.tscn")
 	else:
