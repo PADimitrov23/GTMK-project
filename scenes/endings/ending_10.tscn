@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjrjgewarc2h0"]
+
+[ext_resource type="Script" uid="uid://b7gwm8s1ogf5s" path="res://scripts/ending.gd" id="1_5mhsl"]
+[ext_resource type="PackedScene" uid="uid://cs6ng4najsxad" path="res://scenes/fade_transition.tscn" id="2_nkcad"]
+
+[node name="Ending_10" type="VideoStreamPlayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5mhsl")
+
+[node name="Transition" parent="." instance=ExtResource("2_nkcad")]
+layout_mode = 1

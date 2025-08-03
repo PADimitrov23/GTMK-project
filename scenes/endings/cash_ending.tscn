@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b15j4oke0xun"]
+
+[ext_resource type="Script" uid="uid://b7gwm8s1ogf5s" path="res://scripts/ending.gd" id="1_5my5f"]
+[ext_resource type="PackedScene" uid="uid://cs6ng4najsxad" path="res://scenes/fade_transition.tscn" id="2_ir7ey"]
+
+[node name="CashEnding" type="VideoStreamPlayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5my5f")
+
+[node name="Transition" parent="." instance=ExtResource("2_ir7ey")]
+layout_mode = 1

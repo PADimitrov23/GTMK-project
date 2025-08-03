@@ -47,5 +47,6 @@ autostart = true
 
 [node name="Transition" parent="." instance=ExtResource("3_v5mno")]
 layout_mode = 1
+color = Color(0, 0, 0, 0)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

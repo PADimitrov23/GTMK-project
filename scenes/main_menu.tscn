@@ -133,8 +133,6 @@ text = "Quit"
 [node name="Transition" parent="." instance=ExtResource("4_oa1go")]
 layout_mode = 2
 anchors_preset = 0
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
 
 [node name="FadeTimer" type="Timer" parent="Transition"]
 wait_time = 0.5

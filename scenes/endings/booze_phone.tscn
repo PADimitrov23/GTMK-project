@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://x1bqgb1wv0r6"]
+
+[ext_resource type="Script" uid="uid://b7gwm8s1ogf5s" path="res://scripts/ending.gd" id="2_sc7j2"]
+[ext_resource type="PackedScene" uid="uid://cs6ng4najsxad" path="res://scenes/fade_transition.tscn" id="3_cj8bh"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_gf17e"]
+file = "res://media/videos/BoozePhone.ogv"
+
+[node name="BoozePhone" type="VideoStreamPlayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = SubResource("VideoStreamTheora_gf17e")
+expand = true
+script = ExtResource("2_sc7j2")
+
+[node name="Transition" parent="." instance=ExtResource("3_cj8bh")]
+layout_mode = 1

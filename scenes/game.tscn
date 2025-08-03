@@ -1,21 +1,23 @@
-[gd_scene load_steps=108 format=3 uid="uid://b1m82yqjj2qm7"]
+[gd_scene load_steps=110 format=3 uid="uid://b1m82yqjj2qm7"]
 
-[ext_resource type="Script" uid="uid://biht4kyrxjuqa" path="res://scenes/game.gd" id="1_lnu2h"]
+[ext_resource type="Script" uid="uid://biht4kyrxjuqa" path="res://scripts/game.gd" id="1_37s47"]
 [ext_resource type="PackedScene" uid="uid://cs6ng4najsxad" path="res://scenes/fade_transition.tscn" id="2_lnu2h"]
 [ext_resource type="FontFile" uid="uid://bhpqevcnc30r2" path="res://media/fonts/moinho_1.otf" id="3_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://rh3er2q105av" path="res://media/spritesheets/Robber_BodySheet.png" id="3_ssvqc"]
 [ext_resource type="Texture2D" uid="uid://xh3rb208ho44" path="res://media/spritesheets/Robber_HandOpenRight.png" id="4_264po"]
 [ext_resource type="Texture2D" uid="uid://cmmivs8intgbq" path="res://media/spritesheets/Robber_HandPointRight.png" id="5_1kice"]
 [ext_resource type="Texture2D" uid="uid://c8ngtv50e2fof" path="res://media/spritesheets/Robber_HandGun.png" id="6_5newe"]
+[ext_resource type="PackedScene" uid="uid://cpm1ojwm6uph7" path="res://scenes/item_drop_zone.tscn" id="6_37s47"]
 [ext_resource type="Texture2D" uid="uid://lir3t1qchkc6" path="res://media/spritesheets/Robber_HandOpenLeft.png" id="7_37s47"]
 [ext_resource type="Texture2D" uid="uid://b08jg2ngmcud3" path="res://media/spritesheets/Robber_FaceDarkened.png" id="8_bt5mj"]
 [ext_resource type="Texture2D" uid="uid://2f3f3111odvb" path="res://media/spritesheets/Robber_FaceCalm.png" id="9_e1j6l"]
 [ext_resource type="Texture2D" uid="uid://rbq8mbl7635q" path="res://media/spritesheets/Robber_FaceCalmTalk.png" id="10_pl11u"]
 [ext_resource type="Texture2D" uid="uid://cfp3olg3hitkf" path="res://media/spritesheets/Backgr_Spotlight.png" id="12_264po"]
-[ext_resource type="Texture2D" uid="uid://cjbmq3pgp34kh" path="res://media/spritesheets/Item_Cash.png" id="12_bhx41"]
+[ext_resource type="Texture2D" uid="uid://cjbmq3pgp34kh" path="res://media/spritesheets/item_cash.png" id="12_bhx41"]
 [ext_resource type="Texture2D" uid="uid://c42d7xnp7giv2" path="res://media/spritesheets/frame.png" id="13_1kice"]
 [ext_resource type="Texture2D" uid="uid://cm1hhe47unj58" path="res://media/spritesheets/Item_Knife.png" id="13_qnb83"]
 [ext_resource type="Texture2D" uid="uid://gpbajo0exypf" path="res://media/spritesheets/Item_Booze.png" id="14_sww3w"]
+[ext_resource type="PackedScene" uid="uid://cvejph66qrnph" path="res://scenes/draggable_item.tscn" id="15_37s47"]
 [ext_resource type="Texture2D" uid="uid://bemgl6r2jhjgo" path="res://media/spritesheets/Item_Flashlight.png" id="15_suyxu"]
 [ext_resource type="Texture2D" uid="uid://c6pqadwqkqj76" path="res://media/spritesheets/Item_WeirdPhone.png" id="16_sgl2t"]
 [ext_resource type="Texture2D" uid="uid://dk6a2we7gc8wi" path="res://media/spritesheets/Item_CarKeys.png" id="17_qouja"]
@@ -349,11 +351,6 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"new_animation",
-"speed": 5.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1kice"]
@@ -386,6 +383,42 @@ animations = [{
 }]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p57ef"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tghg"]
+atlas = ExtResource("18_wljb1")
+region = Rect2(0, 0, 1256, 1256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_473mq"]
+atlas = ExtResource("18_wljb1")
+region = Rect2(1256, 0, 1256, 1256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1va0p"]
+atlas = ExtResource("18_wljb1")
+region = Rect2(2512, 0, 1256, 1256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tvof"]
+atlas = ExtResource("18_wljb1")
+region = Rect2(3768, 0, 1256, 1256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fsry6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tghg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_473mq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1va0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tvof")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bt5mj"]
 atlas = ExtResource("13_1kice")
@@ -618,42 +651,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8tghg"]
-atlas = ExtResource("18_wljb1")
-region = Rect2(0, 0, 1256, 1256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_473mq"]
-atlas = ExtResource("18_wljb1")
-region = Rect2(1256, 0, 1256, 1256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1va0p"]
-atlas = ExtResource("18_wljb1")
-region = Rect2(2512, 0, 1256, 1256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2tvof"]
-atlas = ExtResource("18_wljb1")
-region = Rect2(3768, 0, 1256, 1256)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_fsry6"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8tghg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_473mq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1va0p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2tvof")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [node name="Game" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -661,10 +658,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_lnu2h")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+script = ExtResource("1_37s47")
 
-[node name="Transition" parent="." instance=ExtResource("2_lnu2h")]
-layout_mode = 1
+[node name="EndingTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
 
 [node name="Sideback1" type="ColorRect" parent="."]
 layout_mode = 1
@@ -673,16 +674,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.011
 anchor_bottom = 0.004
-offset_left = 1525.0
-offset_top = -367.0
-offset_right = 2188.08
-offset_bottom = 1066.15
+offset_left = 1776.0
+offset_right = 1883.08
+offset_bottom = 937.152
+scale = Vector2(1.50437, 1.02012)
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Background" type="ColorRect" parent="."]
@@ -690,57 +693,52 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -47.0
-offset_top = -367.0
-offset_right = -1495.0
-offset_bottom = 4.0
+offset_right = -1448.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="RobberBody" type="AnimatedSprite2D" parent="."]
-position = Vector2(980, 420)
+position = Vector2(988.374, 556.168)
 scale = Vector2(0.939154, 0.939153)
 sprite_frames = SubResource("SpriteFrames_oaba0")
 autoplay = "default"
 frame_progress = 0.773573
 
 [node name="RobberRightHand" type="AnimatedSprite2D" parent="."]
-position = Vector2(785, 555)
+position = Vector2(793.374, 691.168)
 scale = Vector2(1.1078, 1.05422)
 sprite_frames = SubResource("SpriteFrames_3hbvx")
 animation = &"open"
 autoplay = "open"
 
+[node name="ItemDropZone" parent="RobberRightHand" instance=ExtResource("6_37s47")]
+position = Vector2(-73.1179, -33.1999)
+
 [node name="RobberLeftHand" type="AnimatedSprite2D" parent="."]
-position = Vector2(1127, 547)
+position = Vector2(1135.37, 683.168)
 scale = Vector2(1.02513, 1.00602)
 sprite_frames = SubResource("SpriteFrames_0rmfi")
 animation = &"open"
 autoplay = "open"
 
+[node name="ItemDropZone" parent="RobberLeftHand" instance=ExtResource("6_37s47")]
+position = Vector2(71.2105, -34.7906)
+
 [node name="RobberDarkenedFace" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(945, 230)
+position = Vector2(952, 368)
 scale = Vector2(0.831262, 0.815261)
 sprite_frames = SubResource("SpriteFrames_weeiq")
 autoplay = "default"
 
 [node name="RobberFace" type="AnimatedSprite2D" parent="."]
-position = Vector2(978, 242)
+position = Vector2(986.374, 378.168)
 scale = Vector2(0.831262, 0.815261)
 sprite_frames = SubResource("SpriteFrames_1yg85")
 autoplay = "default"
-
-[node name="ForegroundBar" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -264.0
-grow_horizontal = 2
-grow_vertical = 0
 
 [node name="EndingsCounterLabel" type="Label" parent="."]
 layout_mode = 0
@@ -759,20 +757,6 @@ sprite_frames = SubResource("SpriteFrames_bt5mj")
 autoplay = "default"
 frame_progress = 0.786504
 
-[node name="ConfirmButton" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = 186.0
-offset_right = 294.0
-offset_bottom = 261.0
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_lbhrr")
-theme_override_font_sizes/font_size = 66
-theme_override_styles/normal = SubResource("StyleBoxEmpty_p57ef")
-text = "CONFIRM"
-
 [node name="GiveUpButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 6
@@ -780,15 +764,146 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -294.0
-offset_top = 184.0
-offset_bottom = 259.0
+offset_left = -1742.0
+offset_top = -9.0
+offset_right = -1448.0
+offset_bottom = 66.0
 grow_horizontal = 0
 grow_vertical = 2
+mouse_filter = 1
 theme_override_fonts/font = ExtResource("3_lbhrr")
 theme_override_font_sizes/font_size = 66
 theme_override_styles/normal = SubResource("StyleBoxEmpty_p57ef")
 text = "GIVE UP"
+
+[node name="ConfirmButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1448.0
+offset_top = -9.0
+offset_right = 1742.0
+offset_bottom = 66.0
+grow_vertical = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("3_lbhrr")
+theme_override_font_sizes/font_size = 66
+theme_override_styles/normal = SubResource("StyleBoxEmpty_p57ef")
+text = "CONFIRM"
+
+[node name="ForegroundBar" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -264.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="PlayerProfile" type="AnimatedSprite2D" parent="."]
+position = Vector2(142.519, 948.592)
+scale = Vector2(0.214202, 0.190032)
+sprite_frames = SubResource("SpriteFrames_fsry6")
+autoplay = "default"
+frame_progress = 0.223095
+
+[node name="CashItemFrame" type="AnimatedSprite2D" parent="."]
+position = Vector2(406.519, 948.592)
+scale = Vector2(0.215142, 0.192909)
+sprite_frames = SubResource("SpriteFrames_e1j6l")
+
+[node name="KnifeItemFrame" type="AnimatedSprite2D" parent="."]
+position = Vector2(678.519, 948.592)
+scale = Vector2(0.215142, 0.192909)
+sprite_frames = SubResource("SpriteFrames_e1j6l")
+
+[node name="BoozeItemFrame" type="AnimatedSprite2D" parent="."]
+position = Vector2(950.519, 948.592)
+scale = Vector2(0.215142, 0.192909)
+sprite_frames = SubResource("SpriteFrames_e1j6l")
+
+[node name="FlashlightItemFrame" type="AnimatedSprite2D" parent="."]
+position = Vector2(1222.52, 948.592)
+scale = Vector2(0.215142, 0.192909)
+sprite_frames = SubResource("SpriteFrames_e1j6l")
+
+[node name="PhoneItemFrame" type="AnimatedSprite2D" parent="."]
+position = Vector2(1494.52, 948.592)
+scale = Vector2(0.215142, 0.192909)
+sprite_frames = SubResource("SpriteFrames_e1j6l")
+
+[node name="CarKeysItemFrame" type="AnimatedSprite2D" parent="."]
+position = Vector2(1766.52, 948.592)
+scale = Vector2(0.215142, 0.192909)
+sprite_frames = SubResource("SpriteFrames_e1j6l")
+
+[node name="CashDropZone" parent="." instance=ExtResource("6_37s47")]
+position = Vector2(398.519, 948.592)
+
+[node name="KnifeDropZone" parent="." instance=ExtResource("6_37s47")]
+position = Vector2(670.519, 948.592)
+
+[node name="BoozeDropZone" parent="." instance=ExtResource("6_37s47")]
+position = Vector2(942.519, 964.592)
+
+[node name="FlashlightDropZone" parent="." instance=ExtResource("6_37s47")]
+position = Vector2(1222.52, 948.592)
+
+[node name="PhoneDropZone" parent="." instance=ExtResource("6_37s47")]
+position = Vector2(1486.52, 940.592)
+
+[node name="CarKeysDropZone" parent="." instance=ExtResource("6_37s47")]
+position = Vector2(1758.52, 948.592)
+
+[node name="ItemCash" parent="." node_paths=PackedStringArray("rest_zone") instance=ExtResource("15_37s47")]
+position = Vector2(398.519, 948.592)
+scale = Vector2(0.605423, 0.674742)
+sprite_frames = SubResource("SpriteFrames_fkywm")
+autoplay = "default"
+offset = Vector2(-19.38, 363.275)
+rest_zone = NodePath("../CashDropZone")
+
+[node name="ItemKnife" parent="." node_paths=PackedStringArray("rest_zone") instance=ExtResource("15_37s47")]
+position = Vector2(670.519, 948.592)
+scale = Vector2(0.650794, 0.650794)
+sprite_frames = SubResource("SpriteFrames_15b3c")
+autoplay = "default"
+offset = Vector2(30.355, 36.615)
+rest_zone = NodePath("../KnifeDropZone")
+
+[node name="ItemBooze" parent="." node_paths=PackedStringArray("rest_zone") instance=ExtResource("15_37s47")]
+position = Vector2(942.519, 964.592)
+scale = Vector2(0.752381, 0.752381)
+sprite_frames = SubResource("SpriteFrames_iekjf")
+autoplay = "default"
+offset = Vector2(-20.495, 20.795)
+rest_zone = NodePath("../BoozeDropZone")
+
+[node name="ItemFlashlight" parent="." node_paths=PackedStringArray("rest_zone") instance=ExtResource("15_37s47")]
+position = Vector2(1222.52, 948.592)
+scale = Vector2(0.502651, 0.502651)
+sprite_frames = SubResource("SpriteFrames_tc8uq")
+autoplay = "default"
+offset = Vector2(103.595, 74.945)
+rest_zone = NodePath("../FlashlightDropZone")
+
+[node name="ItemPhone" parent="." node_paths=PackedStringArray("rest_zone") instance=ExtResource("15_37s47")]
+position = Vector2(1486.52, 940.592)
+scale = Vector2(0.617293, 0.617293)
+sprite_frames = SubResource("SpriteFrames_s33c4")
+autoplay = "default"
+offset = Vector2(-114.15, -60.86)
+rest_zone = NodePath("../PhoneDropZone")
+
+[node name="ItemCarKeys" parent="." node_paths=PackedStringArray("rest_zone") instance=ExtResource("15_37s47")]
+position = Vector2(1758.52, 948.592)
+scale = Vector2(0.556926, 0.556926)
+sprite_frames = SubResource("SpriteFrames_de5we")
+autoplay = "default"
+rest_zone = NodePath("../CarKeysDropZone")
 
 [node name="GiveUpPanel" type="PopupPanel" parent="."]
 size = Vector2i(2025, 250)
@@ -827,85 +942,10 @@ text = "No"
 layout_mode = 2
 theme_override_constants/separation = 205
 
-[node name="ItemFrames" type="AnimatedSprite2D" parent="."]
-position = Vector2(476.039, 962)
-scale = Vector2(0.258127, 0.231452)
-sprite_frames = SubResource("SpriteFrames_e1j6l")
-
-[node name="ItemFrames" type="AnimatedSprite2D" parent="ItemFrames"]
-position = Vector2(1243.57, 8.01086e-05)
-scale = Vector2(0.956019, 0.993775)
-sprite_frames = SubResource("SpriteFrames_e1j6l")
-
-[node name="ItemFrames" type="AnimatedSprite2D" parent="ItemFrames/ItemFrames"]
-position = Vector2(1243.57, 8.01086e-05)
-scale = Vector2(0.956019, 0.993775)
-sprite_frames = SubResource("SpriteFrames_e1j6l")
-
-[node name="ItemFrames" type="AnimatedSprite2D" parent="ItemFrames/ItemFrames/ItemFrames"]
-position = Vector2(1243.57, 8.01086e-05)
-scale = Vector2(0.956019, 0.993775)
-sprite_frames = SubResource("SpriteFrames_e1j6l")
-
-[node name="ItemFrames" type="AnimatedSprite2D" parent="ItemFrames/ItemFrames/ItemFrames/ItemFrames"]
-position = Vector2(1243.57, 8.01086e-05)
-scale = Vector2(0.956019, 0.993775)
-sprite_frames = SubResource("SpriteFrames_e1j6l")
-
-[node name="ItemFrames" type="AnimatedSprite2D" parent="ItemFrames/ItemFrames/ItemFrames/ItemFrames/ItemFrames"]
-position = Vector2(1183.59, 17.9156)
-scale = Vector2(0.942027, 0.964879)
-sprite_frames = SubResource("SpriteFrames_e1j6l")
-
-[node name="ItemCash" type="AnimatedSprite2D" parent="."]
-position = Vector2(471, 1236.42)
-scale = Vector2(0.765423, 0.834742)
-sprite_frames = SubResource("SpriteFrames_fkywm")
-autoplay = "default"
-frame_progress = 0.764279
-
-[node name="ItemKnife" type="AnimatedSprite2D" parent="."]
-position = Vector2(809, 962.421)
-scale = Vector2(0.650794, 0.650794)
-sprite_frames = SubResource("SpriteFrames_15b3c")
-autoplay = "default"
-frame_progress = 0.884299
-
-[node name="ItemBooze" type="AnimatedSprite2D" parent="."]
-position = Vector2(1076.04, 992)
-scale = Vector2(0.952381, 0.952381)
-sprite_frames = SubResource("SpriteFrames_iekjf")
-autoplay = "default"
-frame_progress = 0.942541
-
-[node name="ItemFlashlight" type="AnimatedSprite2D" parent="."]
-position = Vector2(1467.04, 996)
-scale = Vector2(0.662651, 0.662651)
-sprite_frames = SubResource("SpriteFrames_tc8uq")
-autoplay = "default"
-frame_progress = 0.435946
-
-[node name="ItemsPhone" type="AnimatedSprite2D" parent="."]
-position = Vector2(1818, 913)
-scale = Vector2(0.7751, 0.7751)
-sprite_frames = SubResource("SpriteFrames_s33c4")
-autoplay = "default"
-frame_progress = 0.241776
-
-[node name="ItemCarKeys" type="AnimatedSprite2D" parent="."]
-position = Vector2(1670, 962)
-scale = Vector2(0.941634, 0.941634)
-sprite_frames = SubResource("SpriteFrames_de5we")
-autoplay = "default"
-frame_progress = 0.815545
-
-[node name="PlayerProfile" type="AnimatedSprite2D" parent="."]
-position = Vector2(158, 966)
-scale = Vector2(0.251592, 0.228135)
-sprite_frames = SubResource("SpriteFrames_fsry6")
-autoplay = "default"
-frame_progress = 0.223095
+[node name="Transition" parent="." instance=ExtResource("2_lnu2h")]
+layout_mode = 1
 
 [connection signal="pressed" from="GiveUpButton" to="." method="_on_give_up_button_pressed"]
+[connection signal="pressed" from="ConfirmButton" to="." method="_on_confirm_button_pressed"]
 [connection signal="pressed" from="GiveUpPanel/MarginContainer/VBoxContainer/YesButton" to="." method="_on_yes_button_pressed"]
 [connection signal="pressed" from="GiveUpPanel/MarginContainer/VBoxContainer/NoButton" to="." method="_on_no_button_pressed"]

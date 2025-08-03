@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://rplxagefpwb7"]
-
-[node name="Ending_9" type="VideoStreamPlayer"]
-offset_right = 40.0
-offset_bottom = 40.0
